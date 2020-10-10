@@ -1,0 +1,12 @@
+services:
+  #    _defaults:
+  #        autowire: true
+  #        autoconfigure: true
+  #        public: false
+  #
+  #    NumberNine\FakerBundle\:
+  #        resource: '../../*'
+  #        exclude: '../../{DependencyInjection,Generator,Provider,Resources,Test,NumberNineFakerBundle.php}'
+
+  Faker\Generator:
+    factory: [ 'NumberNine\FakerBundle\Generator\FakerFactory', 'create' ]

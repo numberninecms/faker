@@ -1,0 +1,16 @@
+titles:
+    - 'How to {{ verb }} in 7 days'
+    - '{{ verb }} a {{ noun }}: A how to guide'
+    - 'This is why your {{ noun }} loves you'
+    - 'Understand why your {{ noun }} loves you'
+    - 'Why your {{ noun }} is {{ adjective }}'
+    - 'Improving your {{ noun }}'
+    - 'Making your {{ noun }} {{ adverb }} {{ adjective }}'
+    - 'A complete guide to {{ noun }}'
+    - '{{ number }} essential steps to {{ noun }}'
+    - "{{ number }} reasons you didn't get {{ adjective }}"
+    - 'What to do with a {{ adjective }} {{ noun }}'
+    - 'What no one tells you about {{ noun }}'
+    - 'The anatomy of {{ noun }} that gets {{ noun }}'
+    - '{{ number }} secrets to {{ verb }} any {{ noun }}'
+

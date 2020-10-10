@@ -1,0 +1,27 @@
+{
+    "name": "numberninecms/faker",
+    "description": "Faker provider for NumberNine CMS",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Arin",
+            "email": "williamarin.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "fzaninotto/faker": "^1.9",
+        "symfony/finder": "^5.1",
+        "symfony/yaml": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "NumberNine\\FakerBundle\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    }
+}
