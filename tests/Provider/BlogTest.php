@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace NumberNine\FakerBundle\Test\Provider;
+namespace NumberNine\FakerBundle\Tests\Provider;
 
 use Faker\Generator;
 use InvalidArgumentException;
 use NumberNine\FakerBundle\Provider\Blog;
 use PHPUnit\Framework\TestCase;
 
-class TestBlog extends TestCase
+class BlogTest extends TestCase
 {
     private Generator $faker;
 
@@ -31,12 +31,11 @@ class TestBlog extends TestCase
         for ($i = 0; $i < 100; $i++) {
             $title = $this->faker->blogTitle;
 
-            $this->assertNotEmpty($title);
-            $this->assertNotContains('{{', $title);
-            $this->assertNotContains('}}', $title);
-            $this->assertEquals(ucwords(strtolower($title)), $title);
-            $this->assertEquals(trim($title), $title);
-            $this->assertRegExp('/[\d\s\w]+/', $title);
+            self::assertNotEmpty($title);
+            self::assertStringNotContainsString('{{', $title);
+            self::assertStringNotContainsString('}}', $title);
+            self::assertEquals(trim($title), $title);
+            self::assertMatchesRegularExpression('/[\d\s\w]+/', $title);
         }
     }
 
@@ -45,10 +44,10 @@ class TestBlog extends TestCase
         for ($i = 0; $i < 100; $i++) {
             $category = $this->faker->blogCategory;
 
-            $this->assertNotEmpty($category);
-            $this->assertEquals(ucwords(strtolower($category)), $category);
-            $this->assertEquals(trim($category), $category);
-            $this->assertRegExp('/[\w\s]+/', $category);
+            self::assertNotEmpty($category);
+            self::assertEquals(ucwords(strtolower($category)), $category);
+            self::assertEquals(trim($category), $category);
+            self::assertMatchesRegularExpression('/[\w\s]+/', $category);
         }
     }
 
@@ -56,14 +55,14 @@ class TestBlog extends TestCase
     {
         for ($i = 0; $i < 20; $i++) {
             $image = $this->faker->blogFeaturedImage;
-            $this->assertNotEmpty($image);
-            $this->assertFileExists($image);
+            self::assertNotEmpty($image);
+            self::assertFileExists($image);
         }
 
         for ($i = 0; $i < 100; $i++) {
             $image = $this->faker->blogFeaturedImage($this->faker->blogCategory);
-            $this->assertNotEmpty($image);
-            $this->assertFileExists($image);
+            self::assertNotEmpty($image);
+            self::assertFileExists($image);
         }
 
         $this->expectException(InvalidArgumentException::class);

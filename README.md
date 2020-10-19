@@ -3,6 +3,10 @@
 Extends Faker with blog related providers.
 This package is used to generate demo data.
 
+# Documentation
+
+https://numberninecms.github.io/
+
 # Credits
 
 Images credits from pexels.com:
