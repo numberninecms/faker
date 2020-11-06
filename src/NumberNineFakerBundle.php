@@ -10,7 +10,7 @@
 
 namespace NumberNine\FakerBundle;
 
-use NumberNine\Model\Bundle\Bundle;
+use NumberNine\Common\Bundle\Bundle;
 
 class NumberNineFakerBundle extends Bundle
 {
