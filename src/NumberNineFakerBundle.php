@@ -10,10 +10,13 @@
 
 namespace NumberNine\FakerBundle;
 
-use NumberNine\Common\Bundle\Bundle;
+use NumberNine\Common\Bundle\BundleTrait;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class NumberNineFakerBundle extends Bundle
 {
+    use BundleTrait;
+
     protected function getAlias(): string
     {
         return 'numbernine_faker';
