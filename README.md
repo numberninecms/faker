@@ -1,3 +1,9 @@
+![NumberNine Logo](./assets/images/NumberNine512_slogan.png)
+
+<br>
+
+[![Travis](https://travis-ci.com/numberninecms/faker.svg?branch=master)](https://travis-ci.com/numberninecms/faker)
+
 # NumberNine CMS Faker
 
 Extends Faker with blog related providers.
