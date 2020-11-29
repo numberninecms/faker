@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the NumberNine package.
  *
@@ -47,7 +48,12 @@ class Blog extends Base
             $finder = new Finder();
             $finder->in($path)->files();
 
-            $this->images[$name] = array_values(array_map(fn(SplFileInfo $file) => $file->getRealPath(), iterator_to_array($finder)));
+            $this->images[$name] = array_values(
+                array_map(
+                    fn(SplFileInfo $file) => $file->getRealPath(),
+                    iterator_to_array($finder)
+                )
+            );
         }
     }
 
@@ -64,10 +70,18 @@ class Blog extends Base
     public function blogFeaturedImage(string $category = null): string
     {
         if ($category && !array_key_exists($category, $this->images)) {
-            throw new InvalidArgumentException(sprintf("Specified category '%s' must be one of: %s", $category, implode(', ', array_keys($this->images))));
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Specified category '%s' must be one of: %s",
+                    $category,
+                    implode(', ', array_keys($this->images))
+                )
+            );
         }
 
-        return $category ? static::randomElement($this->images[$category]) : static::randomElement($this->images[static::randomElement(array_keys($this->images))]);
+        return $category
+            ? static::randomElement($this->images[$category])
+            : static::randomElement($this->images[static::randomElement(array_keys($this->images))]);
     }
 
     private function replacePlaceholders(string $text): string

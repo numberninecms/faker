@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the NumberNine package.
  *
@@ -10,10 +11,13 @@
 
 namespace NumberNine\FakerBundle;
 
-use NumberNine\Model\Bundle\Bundle;
+use NumberNine\Common\Bundle\BundleTrait;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class NumberNineFakerBundle extends Bundle
 {
+    use BundleTrait;
+
     protected function getAlias(): string
     {
         return 'numbernine_faker';
