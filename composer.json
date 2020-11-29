@@ -1,12 +1,12 @@
 {
     "name": "numberninecms/faker",
-    "description": "Faker provider for NumberNine CMS",
     "type": "symfony-bundle",
-    "license": "MIT",
+    "description": "Faker provider for NumberNine CMS",
     "keywords": [
         "faker",
         "blog"
     ],
+    "license": "MIT",
     "authors": [
         {
             "name": "William Arin",
@@ -14,9 +14,9 @@
         }
     ],
     "require": {
-        "php": "^7.4",
-        "fzaninotto/faker": "^1.9",
-        "numberninecms/common": "*@dev",
+        "php": "^7.4 || ^8.0",
+        "fakerphp/faker": "^1.12.0",
+        "numberninecms/common": "0.1.*-dev",
         "symfony/config": "^5.1",
         "symfony/dependency-injection": "^5.1",
         "symfony/finder": "^5.1",
@@ -24,8 +24,25 @@
         "symfony/yaml": "^5.1"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.11",
+        "nikic/php-parser": "^4.10",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpro/grumphp": "^1.0",
+        "phpstan/phpstan": "^0.12.25",
+        "phpstan/phpstan-doctrine": "^0.12.13",
+        "phpstan/phpstan-phpunit": "^0.12.8",
+        "phpstan/phpstan-symfony": "^0.12.6",
+        "phpunit/phpunit": "^9.2",
         "roave/security-advisories": "dev-latest",
-        "phpunit/phpunit": "^9.2"
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -37,8 +54,6 @@
             "NumberNine\\FakerBundle\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "stable",
-    "config": {
-        "sort-packages": true
-    }
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
