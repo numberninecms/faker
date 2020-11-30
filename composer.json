@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "fakerphp/faker": "^1.12.0",
-        "numberninecms/common": "0.1.*-dev",
+        "numberninecms/common": "^0.1",
         "symfony/config": "^5.1",
         "symfony/dependency-injection": "^5.1",
         "symfony/finder": "^5.1",
