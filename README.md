@@ -2,7 +2,7 @@
 
 <br>
 
-[![Travis](https://travis-ci.com/numberninecms/faker.svg?branch=master)](https://travis-ci.com/numberninecms/faker)
+[![Github Workflow](https://github.com/numberninecms/faker/workflows/CI/badge.svg)](https://github.com/numberninecms/faker/actions)
 
 # NumberNine CMS Faker
 
