@@ -20,10 +20,6 @@ use Symfony\Component\Yaml\Yaml;
 
 class Blog extends Base
 {
-    private array $nouns;
-    private array $verbs;
-    private array $adverbs;
-    private array $adjectives;
     private array $titles;
     private array $categories = ['Art', 'Food', 'Lifestyle', 'Movie', 'Music', 'Travel'];
     private array $images = [];
@@ -32,17 +28,16 @@ class Blog extends Base
     {
         parent::__construct($generator);
 
-        $fakerResourcesRoot = dirname(__DIR__) . '/Resources/faker/';
+        $fakerResourcesRoot = __DIR__ . '/../Resources/faker/';
 
-        $this->nouns = Yaml::parseFile($fakerResourcesRoot . 'words/nouns.yaml')['nouns'];
-        $this->verbs = Yaml::parseFile($fakerResourcesRoot . 'words/verbs.yaml')['verbs'];
-        $this->adverbs = Yaml::parseFile($fakerResourcesRoot . 'words/adverbs.yaml')['adverbs'];
-        $this->adjectives = Yaml::parseFile($fakerResourcesRoot . 'words/adjectives.yaml')['adjectives'];
         $this->titles = Yaml::parseFile($fakerResourcesRoot . 'templates/titles.yaml')['titles'];
 
         $finder = new Finder();
         $finder->in($fakerResourcesRoot . 'images/')->directories();
-        $directories = array_map(fn(SplFileInfo $file) => $file->getBasename(), iterator_to_array($finder));
+        $directories = array_map(
+            static fn (SplFileInfo $file) => $file->getBasename(),
+            iterator_to_array($finder, true),
+        );
 
         foreach ($directories as $path => $name) {
             $finder = new Finder();
@@ -50,16 +45,28 @@ class Blog extends Base
 
             $this->images[$name] = array_values(
                 array_map(
-                    fn(SplFileInfo $file) => $file->getRealPath(),
-                    iterator_to_array($finder)
+                    static fn (SplFileInfo $file) => $file->getRealPath(),
+                    iterator_to_array($finder, true),
                 )
             );
         }
     }
 
-    public function blogTitle(): string
+    public function blogTitle(?string $category = null): string
     {
-        return ucwords($this->replacePlaceholders(static::randomElement($this->titles)));
+        if ($category && !array_key_exists($category, $this->titles)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Specified category '%s' must be one of: %s",
+                    $category,
+                    implode(', ', array_keys($this->titles))
+                )
+            );
+        }
+
+        return $category
+            ? static::randomElement($this->titles[$category])
+            : static::randomElement($this->titles[static::randomElement(array_keys($this->titles))]);
     }
 
     public function blogCategory(): string
@@ -67,7 +74,7 @@ class Blog extends Base
         return static::randomElement($this->categories);
     }
 
-    public function blogFeaturedImage(string $category = null): string
+    public function blogFeaturedImage(?string $category = null): string
     {
         if ($category && !array_key_exists($category, $this->images)) {
             throw new InvalidArgumentException(
@@ -82,26 +89,5 @@ class Blog extends Base
         return $category
             ? static::randomElement($this->images[$category])
             : static::randomElement($this->images[static::randomElement(array_keys($this->images))]);
-    }
-
-    private function replacePlaceholders(string $text): string
-    {
-        $search = [
-            '{{ number }}',
-            '{{ noun }}',
-            '{{ verb }}',
-            '{{ adjective }}',
-            '{{ adverb }}',
-        ];
-
-        $replace = [
-            random_int(5, 20),
-            static::randomElement($this->nouns),
-            static::randomElement($this->verbs),
-            static::randomElement($this->adjectives),
-            static::randomElement($this->adverbs),
-        ];
-
-        return str_replace($search, $replace, $text);
     }
 }

@@ -15,55 +15,63 @@ use Faker\Generator;
 use InvalidArgumentException;
 use NumberNine\FakerBundle\Provider\Blog;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Yaml\Yaml;
 
 class BlogTest extends TestCase
 {
     private Generator $faker;
+    private array $titles;
+    private array $categories = ['Art', 'Food', 'Lifestyle', 'Movie', 'Music', 'Travel'];
 
     public function __construct()
     {
         parent::__construct();
+        $fakerResourcesRoot = __DIR__ . '/../../src/Resources/faker/';
+        $this->titles = Yaml::parseFile($fakerResourcesRoot . 'templates/titles.yaml')['titles'];
         $this->faker = new Generator();
         $this->faker->addProvider(new Blog($this->faker));
     }
 
     public function testBlogTitle(): void
     {
-        for ($i = 0; $i < 100; $i++) {
-            $title = $this->faker->blogTitle;
+        $title = $this->faker->blogTitle;
 
-            self::assertNotEmpty($title);
-            self::assertStringNotContainsString('{{', $title);
-            self::assertStringNotContainsString('}}', $title);
-            self::assertEquals(trim($title), $title);
-            self::assertMatchesRegularExpression('/[\d\s\w]+/', $title);
-        }
+        static::assertNotEmpty($title);
+        static::assertEquals(trim($title), $title);
+        static::assertContains($title, array_merge(...array_values($this->titles)));
+    }
+
+    public function testBlogCategoryTitle(): void
+    {
+        $title = $this->faker->blogTitle('Movie');
+
+        static::assertNotEmpty($title);
+        static::assertEquals(trim($title), $title);
+        static::assertContains($title, $this->titles['Movie']);
     }
 
     public function testBlogCategory(): void
     {
-        for ($i = 0; $i < 100; $i++) {
-            $category = $this->faker->blogCategory;
+        $category = $this->faker->blogCategory;
 
-            self::assertNotEmpty($category);
-            self::assertEquals(ucwords(strtolower($category)), $category);
-            self::assertEquals(trim($category), $category);
-            self::assertMatchesRegularExpression('/[\w\s]+/', $category);
-        }
+        static::assertNotEmpty($category);
+        static::assertEquals(ucwords(strtolower($category)), $category);
+        static::assertEquals(trim($category), $category);
+        static::assertContains($category, $this->categories);
     }
 
     public function testBlogFeaturedImage(): void
     {
         for ($i = 0; $i < 20; $i++) {
             $image = $this->faker->blogFeaturedImage;
-            self::assertNotEmpty($image);
-            self::assertFileExists($image);
+            static::assertNotEmpty($image);
+            static::assertFileExists($image);
         }
 
         for ($i = 0; $i < 100; $i++) {
             $image = $this->faker->blogFeaturedImage($this->faker->blogCategory);
-            self::assertNotEmpty($image);
-            self::assertFileExists($image);
+            static::assertNotEmpty($image);
+            static::assertFileExists($image);
         }
 
         $this->expectException(InvalidArgumentException::class);

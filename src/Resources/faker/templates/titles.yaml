@@ -1,16 +1,75 @@
 titles:
-    - 'How to {{ verb }} in 7 days'
-    - '{{ verb }} a {{ noun }}: A how to guide'
-    - 'This is why your {{ noun }} loves you'
-    - 'Understand why your {{ noun }} loves you'
-    - 'Why your {{ noun }} is {{ adjective }}'
-    - 'Improving your {{ noun }}'
-    - 'Making your {{ noun }} {{ adverb }} {{ adjective }}'
-    - 'A complete guide to {{ noun }}'
-    - '{{ number }} essential steps to {{ noun }}'
-    - "{{ number }} reasons you didn't get {{ adjective }}"
-    - 'What to do with a {{ adjective }} {{ noun }}'
-    - 'What no one tells you about {{ noun }}'
-    - 'The anatomy of {{ noun }} that gets {{ noun }}'
-    - '{{ number }} secrets to {{ verb }} any {{ noun }}'
+    Art:
+        - 'How to choose the right colors for your brand'
+        - 'How to get the most out of NumberNine CMS: Tips for graphic designers and agencies'
+        - 'Your ultimate guide to designing with background'
+        - "39 of the most beautiful YouTube banners we've seen"
+        - "How one nonprofit's redesign boosted its impact"
+        - 'Man Spends 7 Years Drawing Incredibly Intricate Maze'
+        - '10 trending color combinations for 2021'
+        - 'Interior Design For Creative Workspaces'
+        - 'An Artist Imagines If Bananas Were Movie Character'
+        - 'Seeing Your Subject From Two Points of View'
 
+    Food:
+        - 'Simple Homemade Tomato Soup'
+        - 'Smoky Red Lentil Soup with Spinach'
+        - 'Air Fryer Frozen French Fries'
+        - 'The BEST Mashed Potatoes'
+        - 'Buttermilk Ranch Dressing'
+        - 'Korean Beef Kabobs'
+        - 'Creamy Honey Mustard Chicken'
+        - 'Chia Seed Pudding'
+        - 'Yogurt Marinated Chicken'
+
+    Lifestyle:
+        - 'How to Get a Just-Had-an-Orgasm Glow'
+        - '4 Print-Forward Outfits to Try Right Now'
+        - 'New Beauty Obsessions for October'
+        - 'Ponytail Holder vs. Hair Ties?'
+        - "I Admit It: I'm Having Fun on TikTok"
+        - 'A Whole Year With the Hyundai Palisade: A Review'
+        - 'Burbank, California: The Travel Guide'
+        - 'Have a Beautiful Weekend.'
+        - 'A Big, Juicy Round Up of Fall Recommendations'
+        - '20 Halloween Costumes For Your Baby'
+
+    Movie:
+        - "Here’s How You Can Watch Netflix Libraries of Other Countries"
+        - 'Beetlejuice: 10 Behind-The-Scenes Facts About The Michael Keaton Movie'
+        - "Zodiac’s Mark Ruffalo Reacts To The Killer Reportedly Being Found"
+        - "Rob Zombie Pays Tribute to 'Hot Rod Herman' in The Munsters Movie Reboot"
+        - "Keanu Reeves Will Be Inducted Into Canada's Walk of Fame This December"
+        - '12 Best Original Netflix Movies, Ranked'
+        - 'YouTube Rewind Canceled After 10 Years'
+        - "Dragon Ball Super: Vegeta Needs to Get Creative to Match Goku's Power"
+        - "Spongebob’s Squidward Joins Squid Game in Fan-Made Funko Pop"
+        - 'Pretty Smart Cast & Character Guide'
+        - "No Time to Die: What did you think?"
+        - "Cillian Murphy to star in Christopher Nolan’s new movie as Robert Oppenheimer"
+
+    Music:
+        - "Does Rock ‘N’ Roll Kill Braincells?! – Candi Staton"
+        - "Patti Smith live in London: punk’s poet laureate claims legend status"
+        - "Soundtrack Of My Life: Steps’ Faye Tozer"
+        - "Adele, The Kid LAROI, Coldplay x BTS, Kacey Musgraves & More of the Week's Biggest Winners"
+        - "More Young Artists Are Exploring Pop-Punk -- And It's Paying Off"
+        - "How We Listened to Music Over the Last 25 Years"
+        - '7 New Albums You Should Listen to Now'
+        - 'The 200 Most Important Artists of Pitchfork’s First 25 Years'
+        - 'Nicki Minaj Joins Jesy Nelson on New Song “Boyz”: Listen'
+        - 'Tech N9ne Reunites With Lil Wayne On "Too Good"'
+        - "Jimmy Henchman, 50 Cent's Biggest Enemy, May Be Free Soon"
+
+    Travel:
+        - 'More shopping, less sunbathing'
+        - "Disney introducing paid ‘FastPass’ replacement"
+        - 'American Express American Airlines Business Extra Corporate Card review'
+        - 'Basilicas, bagels and other top things to do in Montréal'
+        - "How does England's new travel system work?"
+        - "Guide To American Airlines Business Extra Program"
+        - "Huge: Capital One Miles Now Transfer 1:1 To Most Airlines"
+        - 'Top 5 Destinations In Mexico To Visit This Winter'
+        - 'New Low Cost, Low Carbon Train Company Set To Launch In UK This Month'
+        - "9 Impressive Waterfalls in Mexico Your Don’t Want To Miss"
+        - "Top 7 Places For A Couples Getaway In The U.S. This Winter"
