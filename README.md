@@ -9,11 +9,18 @@
 Extends Faker with blog related providers.
 This package is used to generate demo data.
 
-# Documentation
+## Documentation
 
-https://numberninecms.github.io/
+https://numberninecms.com
 
-# Credits
+## Licence
+
+[MIT](LICENSE)
+
+Copyright (c) 2020-2022, William Arin
+
+
+## Credits
 
 Images credits from pexels.com:
 
